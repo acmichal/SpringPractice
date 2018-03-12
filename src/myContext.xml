@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <bean id="mySpecialty" class="pl.michalkr.springpractice.HuntingSpecialty"/>
+    <bean id="mySpecialty2" class="pl.michalkr.springpractice.DefenseSpecialty"/>
+    
+    <bean id="myPracticeAnimal" class="pl.michalkr.springpractice.Cheetah" init-method="initThisBean" destroy-method="destroyThisBean">
+    <constructor-arg ref="mySpecialty"/>
+    </bean>
+    
+    <bean id="myPracticeAnimal2" class="pl.michalkr.springpractice.Rhino" scope="singleton">
+    <constructor-arg ref="mySpecialty2"/>
+    </bean>
+    
+    <context:component-scan base-package="pl.michalkr.springpractice"/>
+    
+</beans>
+
+
+
+
+
